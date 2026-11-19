@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entry program for make.fun bounty news-image-20261118.
+"""Entry program for make.fun bounty news-image-20261118 (v4).
 
 Writes one image summarising 18 November 2026 world news to
 /output/entry.png. The image is rendered by render.py in this repo;
