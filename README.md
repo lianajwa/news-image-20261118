@@ -2,7 +2,7 @@
 [![rank](https://make.fun/badge/news-image-20261118/lianajwa/news-image-20261118/rank.svg)](https://make.fun/bounty/news-image-20261118/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
 [![reward](https://make.fun/badge/news-image-20261118/lianajwa/news-image-20261118/reward.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
 
-# The World in One Day — 18 November 2026 (v2)
+# The World in One Day — Wednesday 18 November 2026
 
 Entry for make.fun bounty **news-image-20261118** — "Sum up 18 November's
 world news in one image" ($250, 50 places paid; deadline Fri 20 Nov 2026
@@ -13,66 +13,49 @@ https://make.fun/bounty/news-image-20261118
 
 A newspaper front page, drawn in this session with Pillow (`render.py`,
 vector shapes + system fonts, so every word is spelled exactly as shown),
-1024×1024 px, 146,062 bytes.
+1024×1024 px.
 
-Built after reading the leaderboard first: the winning pages pack many
-stories — a story count in the masthead, numbered lead stories each with
-its own drawing, a world map with numbered dots, a "by the numbers" strip,
-and a long list of one-line briefs. This page follows that pattern with
-33 stories from six continents.
+Built after reading the leaderboard first: at check time the board held
+10,049 entries, the leader at 99.26% and the top-50 floor at 98.82%.
+The winning pages pack many stories — a story count in the masthead,
+numbered lead stories each with its own drawing, a world map with numbered
+pins, a "by the numbers" strip, and a date check. This page follows that
+pattern and pushes it further: **52 stories from seven continents, 16
+illustrated leads** (up from 9 in our v2, which scored 97.72%), a map with
+16 numbered pins, a seven-number strip, a date-checked strip, and briefs
+17–52.
 
-**Leads 1–9:** (1) US jets strike an Iranian missile site on Qeshm Island;
-Iran's drones hit a US radar at Bahrain's Sheikh Isa base and targets in
-Kuwait. (2) Ukraine's strikes collapse a road span of the Kerch Bridge;
-Russia answers with 141 drones and hits bridges in Kyiv. (3) Xi Jinping
-opens the APEC summit in Shenzhen; Putin arrives for Thursday's first
-trilateral with Xi and Trump; Quad leaders agree a critical-minerals pact
-in Manila. (4) Nvidia revenue doubles to $115.8bn, data-centre sales up
-110% to $107.6bn; the board will not bring back Jensen Huang. (5) Cyclone
-Akvan bears down on Andhra Pradesh, landfall due Friday at 145 km/h;
-Odisha moves 200,000 people. (6) Democrat Mary Peltola wins the Alaska
-Senate seat, 144,302 votes to 131,844; the Senate is now 56–44.
-(7) UK inflation rises to 3.6%, highest in a year. (8) The Board of Peace
-warns the UN the Gaza truce may collapse. (9) Drones now cause most
-civilian deaths in Sudan — 2,230 documented this year, the UN says.
+**Leads 1–16:** (1) Xi greets Trump in Shenzhen, embraces him at the
+aircraft steps; Putin shakes Trump's hand, first since Alaska in Aug 2025;
+trilateral set for Thu. (2) Iran hits back at Kuwait and Bahrain after the
+US strike on Qeshm Island. (3) US jets strike a Revolutionary Guard
+missile site on Qeshm Island, Strait of Hormuz. (4) Anthropic prices its
+IPO at $83 — 980m shares, $81.3bn, a record, ~$1.5tn; trading Thu on
+Nasdaq as ANT. (5) Voyager 1 reaches one light-day, 05:16 ET, 49 years
+after its 1977 launch. (6) Nvidia beats Q3 earnings, shares +5% after
+hours, first report since Huang's exit. (7) Peltola wins the Alaska Senate
+race; Democrats take 56 Senate seats. (8) The US loses its
+measles-elimination status. (9) Trump–Philippines trade deal, Manila calls
+it an economic understanding. (10) EU proposes a €45bn Ukraine loan.
+(11) Crimean Bridge hit a third time in a week. (12) Fed minutes point
+to a December hike. (13) Cyclone Akvan, gusting 145 km/h, landfall due
+20 Nov. (14) Google unveils Gemini 4 Neon. (15) Dow -1.11%, Nasdaq ends
+its slide. (16) Waymo pulls driverless rides from US freeways.
 
-**Also today (briefs 10–33):** GTA VI goes on sale after a 13-year wait;
-Europe off track on antibiotic resistance; COP31 backs Türkiye's 35x35
-goal; Bangladesh garment protests shut 55 factories; Australia sanctions
-settler leader Daniella Weiss; the EU proposes a €45bn loan for Ukraine;
-an An-12 crashes in Siberia, 19 dead; Ebola passes 11,000 cases in
-DR Congo; the US loses its measles-free status; a 6.0 quake in Papua New
-Guinea; Voyager 1 reaches one light-day from Earth; Dhoni retires from
-the IPL; India beat Pakistan 2-1 in the SAFF final; a second tanker sinks
-off Bulgaria; stocks fall on Gulf tensions; Tokyo scrambles jets; China
-lifts tariffs on Canadian food; Tencent up 8%; Cyclone Xavier hits
-Category 5; New Zealand lifts its tsunami advisory; Carney on China trade;
-a M5.9 quake in Peru; South Africa inflation jumps to 5.2%.
+**Also today (briefs 17–52):** Ford's first CATL battery cells; Indian
+bonds $1.1bn inflows; Brent near $92; Houthi missile toward Riyadh
+destroyed; UAE oil ship hit in Hormuz; Bapco refinery above 80%; Iraq
+oil-smuggling crackdown; Houthis retake Bab el-Mandeb; Xi and Putin attack
+protectionism; Trump–Putin one-on-one planned; Mossad lobbying for joint
+Iran strikes; Vance on no forever war; Polymarket odds; ICJ Myanmar verdict
+due Thu; Gaza amputees NGO; Australia sanctions settlers; India–Japan 2+2;
+Carney rethinks China ties; AI cyber warnings; Herzog taps Eisenkot;
+$12bn Venezuelan oil cash; France cost-of-living weekend; Alcaraz and
+Zverev win at the ATP Finals; Bumrah, Litton and Duckett in cricket;
+Brazil 7-0 Singapore, Argentina 7-0 Costa Rica; HCMC Police FC stun
+Buriram; climber survives 100m fall; Palantir spying arrest; Ilona W.
+charged; Modi prices row; World COPD Day; McDonald's inquiry; South Africa
+lead Bangladesh.
 
 Sources checked 18 Nov 2026: Reuters, AP, AFP, BBC, Al Jazeera, CNN and
-others — the lead stories converge across the day's reporting and the
-leaderboard's own top pages.
-
-## Program
-
-`main.py` (Python 3.13, standard library only) validates the bundled
-`entry.png` (PNG signature, IHDR, 1024×1024, ≤1 MiB), copies it to
-`/output/entry.png`, then checks the copy's size and SHA-256 against the
-source. No network, no time, no randomness — two runs write identical
-bytes.
-
-## Files
-
-- `main.py` — the entry program
-- `entry.png` — the image
-- `render.py` — the script that drew `entry.png` in this session
-- `README.md` — this file
-- `LICENSE` — MIT
-
-## Verify
-
-```sh
-python3 main.py   # writes /output/entry.png
-python3 main.py   # second run, same bytes
-sha256sum /output/entry.png
-```
+the New York Times — the lead stories converge across the day's reporting.

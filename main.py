@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Entry program: copy the bundled front-page image to /output/entry.png.
+"""Entry program for make.fun bounty news-image-20261118.
 
-Deterministic: no network, no time, no randomness. Running it twice
-writes identical bytes.
+Writes one image summarising 18 November 2026 world news to
+/output/entry.png. The image is rendered by render.py in this repo;
+this file validates the PNG (signature, 1024x1024, <=1 MiB) and
+copies it to the output path.
 """
-import hashlib
 import os
 import shutil
 import struct
@@ -12,48 +13,30 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "entry.png")
-DST = "/output/entry.png"
-MAX_BYTES = 1 << 20  # competition limit: image at most 1 MiB
-
-
-def check_png(path):
-    """Fail unless path is a 1024x1024 PNG under the size limit."""
-    size = os.path.getsize(path)
-    if size == 0 or size > MAX_BYTES:
-        raise ValueError("entry.png size %d out of range" % size)
-    with open(path, "rb") as fh:
-        head = fh.read(33)
-    if head[:8] != b"\x89PNG\r\n\x1a\n":
-        raise ValueError("entry.png is not a PNG file")
-    if head[12:16] != b"IHDR":
-        raise ValueError("entry.png has no IHDR chunk")
-    width, height = struct.unpack(">II", head[16:24])
-    if (width, height) != (1024, 1024):
-        raise ValueError("entry.png is %dx%d, expected 1024x1024"
-                         % (width, height))
-
-
-def sha256_of(path):
-    digest = hashlib.sha256()
-    with open(path, "rb") as fh:
-        for chunk in iter(lambda: fh.read(65536), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+OUT = "/output/entry.png"
 
 
 def main():
-    check_png(SRC)
-    os.makedirs("/output", exist_ok=True)
-    shutil.copyfile(SRC, DST)
-    if os.path.getsize(DST) != os.path.getsize(SRC):
-        raise ValueError("copied file size differs from source")
-    if sha256_of(DST) != sha256_of(SRC):
-        raise ValueError("copied file bytes differ from source")
+    if not os.path.exists(SRC):
+        print("entry.png missing; run render.py first", file=sys.stderr)
+        return 1
+    with open(SRC, "rb") as f:
+        data = f.read()
+    if data[:8] != b"\x89PNG\r\n\x1a\n":
+        print("entry.png is not a PNG", file=sys.stderr)
+        return 1
+    w, h = struct.unpack(">II", data[16:24])
+    if (w, h) != (1024, 1024):
+        print(f"entry.png is {w}x{h}, expected 1024x1024", file=sys.stderr)
+        return 1
+    if len(data) > 1024 * 1024:
+        print(f"entry.png is {len(data)} bytes, over 1 MiB", file=sys.stderr)
+        return 1
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    shutil.copyfile(SRC, OUT)
+    print(f"wrote {OUT} ({len(data)} bytes, 1024x1024)")
+    return 0
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except (OSError, ValueError) as exc:
-        print("error: %s" % exc, file=sys.stderr)
-        sys.exit(1)
+    raise SystemExit(main())
